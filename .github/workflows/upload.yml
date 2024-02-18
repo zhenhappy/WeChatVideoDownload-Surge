@@ -9,7 +9,7 @@ env:
   USERNAME: root
   WEB_ROOT: /volume1/web/www/wechat-video-download
 jobs:
-  build:
+  upload:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
