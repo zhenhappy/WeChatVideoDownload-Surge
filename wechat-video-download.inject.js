@@ -1,4 +1,6 @@
 window.WeixinJSBridge.invoke = (function (name, origin) {
+  console.log('1')
+
   let videoData = null
 
   function createDownloadBtn () {
