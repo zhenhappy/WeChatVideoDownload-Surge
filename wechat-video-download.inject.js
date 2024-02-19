@@ -32,10 +32,12 @@ window.WeixinJSBridge.invoke = (function (name, origin) {
     `
     download.addEventListener('mouseenter', function() {
       download.style.background = '#6c757d';
+      download.style.color = '#FFFFFF';
     });
 
     download.addEventListener('mouseleave', function() {
       download.style.background = '#FFFFFF';
+      download.style.color = '#6c757d';
     });
     download.innerText = '复制下载链接'
     download.onclick = () => {
@@ -54,10 +56,12 @@ window.WeixinJSBridge.invoke = (function (name, origin) {
     `
     password.addEventListener('mouseenter', function() {
       password.style.background = '#6c757d';
+      password.style.color = '#FFFFFF';
     });
 
     password.addEventListener('mouseleave', function() {
       password.style.background = '#FFFFFF';
+      password.style.color = '#6c757d';
     });
     password.innerText = '复制解密秘钥'
     password.onclick = () => {
