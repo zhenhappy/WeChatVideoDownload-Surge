@@ -20,5 +20,5 @@ jobs:
           host: ${{ env.HOST }}
           username: ${{ env.USERNAME }}
           key: ${{ secrets.KEY }}
-          source: "wechat-video-download.js, wechat-video-download.inject.js, wechat-video-download.sgmodule"
+          source: "wechat-video-download.js,wechat-video-download.inject.js,wechat-video-download.sgmodule"
           target: "${{ env.WEB_ROOT }}"
