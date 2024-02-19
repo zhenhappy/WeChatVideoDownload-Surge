@@ -5,4 +5,4 @@
 微信视频号 = type=http-response,pattern=https://channels.weixin.qq.com/web/pages/feed,requires-body=1,max-size=-1,debug=1,script-path=https://i.wantmake.love:8091/wechat-video-download/wechat-video-download.js
 
 [MITM]
-hostname= %APPEND% channels.weixin.qq.com
+hostname= %APPEND% channels.weixin.qq.com:443,
