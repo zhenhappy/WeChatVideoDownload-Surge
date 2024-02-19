@@ -1,5 +1,5 @@
 window.WeixinJSBridge.invoke = (function (name, origin) {
-  console.log('1')
+  console.log('2')
 
   let videoData = null
 
@@ -27,18 +27,19 @@ window.WeixinJSBridge.invoke = (function (name, origin) {
       color: #6c757d;
       cursor: pointer;
       border-radius: 4px;
+      background: #FFFFFF;
       border: 1px solid #6c757d;
     `
+    download.addEventListener('mouseenter', function() {
+      download.style.background = '#6c757d';
+    });
+
+    download.addEventListener('mouseleave', function() {
+      download.style.background = '#FFFFFF';
+    });
     download.innerText = '复制下载链接'
     download.onclick = () => {
-      if (videoData?.url) {
-        copyToClipboard(
-          videoData.url,
-          () => {
-            showToast('复制下载链接成功')
-          }
-        )
-      }
+      if (videoData?.url) copyToClipboard(videoData.url)
     }
 
     const password = document.createElement('button')
@@ -51,16 +52,17 @@ window.WeixinJSBridge.invoke = (function (name, origin) {
       margin-right: 15px;
       border: 1px solid #6c757d;
     `
+    password.addEventListener('mouseenter', function() {
+      password.style.background = '#6c757d';
+    });
+
+    password.addEventListener('mouseleave', function() {
+      password.style.background = '#FFFFFF';
+    });
     password.innerText = '复制解密秘钥'
     password.onclick = () => {
-      if (videoData?.decode_key) {
-        copyToClipboard(
-          videoData.decode_key,
-          () => {
-            showToast('复制解密秘钥成功')
-          }
-        )
-      }
+      if (videoData?.decode_key) copyToClipboard(videoData.decode_key)
+
     }
 
     btnGroup.appendChild(password)
@@ -94,16 +96,16 @@ window.WeixinJSBridge.invoke = (function (name, origin) {
     const toast = document.createElement('div')
     toast.textContent = message
     toast.style.cssText = `
-    position: fixed;
-    bottom: 100px;
-    left: 50%;
-    color: white;
-    z-index: 9999;
-    padding: 10px 20px;
-    border-radius: 5px;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.5);
-  `
+      position: fixed;
+      bottom: 100px;
+      left: 50%;
+      color: white;
+      z-index: 9999;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.5);
+    `
     document.body.appendChild(toast)
 
     setTimeout(() => {
@@ -126,7 +128,7 @@ window.WeixinJSBridge.invoke = (function (name, origin) {
     textarea.select()
     document.execCommand('copy')
     document.body.removeChild(textarea)
-    if (success) success()
+    showToast('复制成功')
   }
 
   return function () {
